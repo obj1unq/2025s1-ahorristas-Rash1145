@@ -1,9 +1,13 @@
-
-object cuentaCorriente {
-	var property saldo = 0
+class CuentaCorriente{
+	var saldo = 0
 	method depositar(monto) { saldo += monto }
 	method extraer(monto) { saldo -= monto }
+	method saldo() {
+	  return saldo
+	}
 }
+
+const cuentaCorriente = new CuentaCorriente(saldo = 1000)
 
 object colchon {
 	var property dinero = 0
@@ -12,7 +16,7 @@ object colchon {
 
 object pepe {
 	const cajaFuerte = colchon
-	const miCuenta = cuentaCorriente
+	const miCuenta = new CuentaCorriente(saldo = 0)
 	method cobrar(monto) { 
 		cajaFuerte.guardar(monto)
 	}
@@ -27,6 +31,7 @@ object pepe {
 //https://es.wikipedia.org/wiki/Rebeca_Guber
 object rebeca {
 	const miCuenta = cuentaCorriente
+
 	method cobrar(monto) { 
 		miCuenta.depositar(monto)
 	}
@@ -37,6 +42,3 @@ object rebeca {
 		return miCuenta.saldo()
 	}
 }
-
-
-
